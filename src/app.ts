@@ -1,7 +1,7 @@
 import compression from "compression";
 import cors from "cors";
 import express from "express";
-import { UserRoute } from "./modules/user/user.route";
+import { userRouter } from "./modules/user/user.routes";
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(
   })
 );
 
-app.use("/api/v1/users", UserRoute);
+app.use("/api/v1/users", userRouter);
 // Default route for testing
 app.get("/", (_req, res) => {
   res.send("API is running");
